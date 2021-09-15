@@ -53,12 +53,15 @@ void main()
 
     // animate positions using sine func
     if (u_AnimOn == 1){
-        float distFromStart = 2.5;
-        newPos = sin(time*0.5) * vs_Nor*distFromStart + newPos;
+        float distAlongNor = 2.5;
+        // move sides along normals
+        newPos = sin(time*0.5) * vs_Nor*distAlongNor + newPos;
+        // move the cube sides along sine waves in y direction
         if (vs_Nor.x != 0.0 || vs_Nor.z != 0.0){
             float nonZeroScale = vs_Nor.x == 0.0 ? vs_Nor.z : vs_Nor.x;
             newPos = newPos + nonZeroScale * vec4(0.0, -0.3 * sin((time*2.0 - 1.0) * 3.3), 0.0, 0.0);
         }
+        // move the cube top and bottom along sine waves in the x direction
         else if (vs_Nor.y != 0.0){
             newPos = newPos + vs_Nor.y * vec4(-0.3 * sin((time*2.0 - 1.0) * 3.3), 0.0, 0.0, 0.0);
         }

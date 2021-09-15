@@ -94,10 +94,12 @@ function main() {
       icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, prevTesselations);
       icosphere.create();
     }
+    // get values from the controls
     const r = controls['R value'] / 255;
     const g = controls['G value'] / 255;
     const b = controls['B value'] / 255;
     const animOn = controls['Animation On'] ? 1 : 0;
+    
     renderer.render(camera, lambert, vec4.fromValues(r, g, b, 1), 
                     animOn, time, [
       //icosphere,

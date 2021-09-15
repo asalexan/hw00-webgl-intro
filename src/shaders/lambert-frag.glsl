@@ -96,11 +96,18 @@ void main()
                                                             //lit by our point light are not completely black.
 
         // Compute final shaded color
+
+        // get perlin noise values using three differently scaled positions
+        // then, get the corresponding gradient colors and average
         float perlin1 = perlinNoise3D(fs_Pos.rgb);
         float perlin2 = clamp(perlinNoise3D(fs_Pos.rgb * 2.0), 0.0, 1.0);
         float perlin3 = clamp(perlinNoise3D(fs_Pos.rgb * 0.5), 0.0, 1.0);
-        float distFromCam = abs(fs_Pos.z - 5.0) - 3.5;
+        float fadeStartDist = 3.5;
+        float fadeDist = 2.5;
+        float hardcodedCameraZ = 5.0;
+        float distFromCam = abs(fs_Pos.z - hardcodedCameraZ) - fadeStartDist;
         vec4 gradientColor = (getGradient(perlin1) + getGradient(perlin2) + getGradient(perlin3)) / 3.0;
-        vec4 mixedPerlin = mix(gradientColor, vec4(u_Color.rgb, 0.7), clamp(distFromCam / 2.5, 0.0, 1.0));
+        vec4 mixedPerlin = mix(gradientColor, vec4(u_Color.rgb, 0.7), clamp(distFromCam / fadeDist, 0.0, 1.0));
+        
         out_Col = vec4(mixedPerlin.rgb, mixedPerlin.a);
 }
