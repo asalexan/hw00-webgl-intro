@@ -13,11 +13,11 @@
 ## Description
 This introductory project for CIS566 (Procedural Graphics) involved experimentation with Typescript and WebGL to produce an animated cube decorated with procedural noise. 
 
-![Cube Animation Preview](/images/cis566-hw0-screenshot.gif)
+![Cube Animation Preview](/images/cis566-hw0-screenshot-long.png)
 
 ## Implementation 
 I averaged three 3D Perlin Noise functions together at different frequencies and used the resulting value to pick a color from a gradient. These colors are based on the user's input color, and vary in transparency. The further from the camera z-position the fragments are, the more faded the noise becomes. I also have a control to turn on or off animation, which will move each vertex along a sine wave in the direction of its normal.
 
-![Cube Animation Demo](/images/cis566-hw0-3.gif)
-
 Live Demo: https://asalexan.github.io/hw00-webgl-intro/
+
+![Cube Animation Demo](/images/cis566-hw0-3.gif)
