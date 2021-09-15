@@ -6,9 +6,9 @@
 
 1. [Install Node.js](https://nodejs.org/en/download/)
 
-2. Using a command terminal, run `npm install` in the root directory of your project to download dependencies
+2. Using a command terminal, run `npm install` in the root directory of your project to download dependencies.
 
-3. Run `npm start` and then go to `localhost:5660` in your web browser
+3. Run `npm start` and then go to `localhost:5660` in your web browser.
 
 ## Description
 This introductory project for CIS566 (Procedural Graphics) involved experimentation with Typescript and WebGL to produce an animated cube decorated with procedural noise. 
